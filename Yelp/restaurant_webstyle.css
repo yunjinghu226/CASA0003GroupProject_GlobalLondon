@@ -1,0 +1,122 @@
+<style>
+    body { margin:0; padding:0; }
+     #map { position:absolute; top:0; bottom:0; width:100%; }
+
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 380px;
+    min-width: 380px;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+
+.map-overlay .map-overlay-inner {
+    background-color: #f0f0f0;
+    border-radius: 0px;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.map-overlay table {
+    border: none;
+    width: 100%;
+}
+
+.map-overlay h2 {
+    line-height: 24px;
+    display: block;
+    margin: 0 0 10px;
+}
+
+.map-overlay label {
+    font: 18px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    display: block;
+    vertical-align: middle;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+.map-overlay .legend .bar {
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(to right, #FCA107, #7F3121);
+}
+
+.map-overlay input {
+    background-color: transparent;
+    display: inline-block;
+    width: 100%;
+    min-width: 220px;
+    position: relative;
+    margin: 6px 0 0 0;
+    cursor: ew-resize;
+}
+
+.map-overlay p.credit {
+   margin: 0;
+   padding: 0;
+}
+
+.mapboxgl-popup {
+   font: 12px/12px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+   padding: 0;
+   margin: 0,0,0,0;
+   border: none;
+}
+
+.mapboxgl-popup-content {
+  padding: 0px 10px;
+  border-radius:3px;
+
+}
+
+.mapboxgl-popup-tip {
+    width:0;
+    height:0;
+    margin:0;
+    border-left:0 solid transparent;
+    border-right:0 solid transparent;
+    border-top:0 solid transparent;
+    box-shadow:none;
+}
+
+.collapsible {
+  background-color: #cf4217;
+  color: white;
+  cursor: pointer;
+  padding: 0px 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #e5a448;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 0px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+</style>

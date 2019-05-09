@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>London Global Cuisines</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='restaurant_webstyle.css' rel='stylesheet' />
+  </head>
+
+  <body>
+    <link href='menu_style.css' rel='stylesheet' />
+    <nav id='menu'></nav>
+
+    <div id='map'></div>
+
+    <div class='map-overlay top'>
+      <div class='map-overlay-inner'>
+        <h2><font color='#cf4217'>London Global Cuisines</font></h2>
+        <p class="credit">Data: <a href="https://www.yelp.com/developers/documentation/v3/business_search">Yelp Fusion API</a></p>
+      </div>
+      <button class="collapsible"></button>
+        <div class="content">
+          <p>(brief description)</p>
+
+        </div>
+    </div>
+
+    <script>
+
+      // collapsible setup
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+
+      // display the base map
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHlzaHUyMjYiLCJhIjoiY2puMzl0bzRrMmR5eDNwcXZ6YTk1b2x4MSJ9.YExeZS4oHiM3y4zZtiWO7g';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/alexyshu226/cjvgs9wdh0eki1fqmvaycd9vs',
+        center: [-0.127,51.517],
+        zoom: 10.75
+      });
+
+      // add functional features
+      map.on('load',function(){
+
+        // add tileset sources
+        map.addSource('resta_dots', {
+          "type": "vector",
+          "url": "mapbox://alexyshu226.bc7wi6sp"
+        });
+
+        var categories = [ 'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other' ];
+
+        // add legend with on/off switch
+        for (var i = 0; i < categories.length; i++) {
+        var id = categories[i];
+
+          var link = document.createElement('a');
+          link.href = '#';
+          link.className = 'active';
+          link.textContent = id;
+
+          link.onclick = function (e) {
+            var clickedLayer = this.textContent;
+            e.preventDefault();
+            e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+            if (visibility === 'visible') {
+              map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+              this.className = '';
+            } else {
+              this.className = 'active';
+              map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+          };
+
+          var layers = document.getElementById('menu');
+          layers.appendChild(link);
+        }
+
+        // add dot layers
+        var colors = ['#d1bb5a','#e08f4f','#daa295','#ff7ae2','#c49c51','#8463c2','#107f7f','#75bf9a','#a3a12e','#4d8d11','#e9aaaf','#8991d1','#ca79e8']
+        for (var i = 0; i < categories.length; i++) {
+          map.addLayer({
+                  'id': 'resta_dots',
+                  'type': 'point',
+                  'source': 'resta_dots',
+                  'source-layer': 'restaurants-bt7efa', // name of tilesets
+                  'layout': {'visibility': 'visible'},
+                  'paint': {
+                      'circle-color': colors[i],
+                      'circle-opacity': 1,
+                      'circle-radius': {
+                          'stops': [
+                              [{zoom: 8}, 2],
+                              [{zoom: 11}, 3],
+                              [{zoom: 14}, 6]
+                          ]
+                      }
+                  },
+                  'filter': ['==','general_ca',categories[i]]
+          });
+        }
+
+
+
+
+
+      //   // the three functions below add a popup function to display the information for each station
+      //   var mypopup = new mapboxgl.Popup({offset:[70,50],closeButton: false});
+      //   // event listener that adds the popup when the user puts their cursor over the station circles
+      //   map.on('mouseover', 'Stations-out', function (e) {
+      //           mypopup
+      //               .setLngLat(e.features[0].geometry.coordinates)
+      //               .setHTML("<h4>" + e.features[0].properties.Name + "</h4>")
+      //               .addTo(map);
+      //   });
+      //   // Change the cursor to a pointer when the mouse is over the stations layer.
+      //   map.on('mouseenter', 'Stations-out', function () {
+      //         map.getCanvas().style.cursor = 'pointer';
+      //   });
+      //   // Change it back to a pointer when it leaves and remove the popup window.
+      //   map.on('mouseleave', 'Stations-out', function () {
+      //       map.getCanvas().style.cursor = '';
+      //       mypopup.remove();
+      //   });
+      //
+      //   // add click events
+      //   map.on('click', function(e) {
+      //     // get features under the cliked point
+      //     var features1 = map.queryRenderedFeatures(e.point, { layers: ['Stations-in'] });
+      //     var features2 = map.queryRenderedFeatures(e.point, { layers: ['Stations-out'] });
+      //     // Run through the selected features and set a filter to match features with station name to activate the `flowline-in` layer.
+      //     if (features1 != []) {
+      //       var filter = features1.reduce(function(memo, feature) {
+      //         memo.push(feature.properties.Name);
+      //         return memo;
+      //       }, ['==', 'destinatio']);
+      //       map.setFilter('flowline-in',['==','destinatio','']);
+      //       map.setFilter('flowline-out',['==','origin_sta','']);
+      //       map.setFilter("flowline-in",filter);
+      //     };
+      //     if (features1.length === 0 && features2 != []) {
+      //       var filter = features2.reduce(function(memo, feature) {
+      //         memo.push(feature.properties.Name);
+      //         return memo;
+      //       }, ['==', 'origin_sta']);
+      //       map.setFilter('flowline-in',['==','destinatio','']);
+      //       map.setFilter('flowline-out',['==','origin_sta','']);
+      //       map.setFilter("flowline-out",filter);
+      //     };
+      //     if (features2.length === 0) {
+      //       map.setFilter('flowline-in',['==','destinatio','']);
+      //       map.setFilter('flowline-out',['==','origin_sta','']);
+      //     };
+      //   });
+      //
+      });
+
+    </script>
+
+  </body>
+
+</html>
