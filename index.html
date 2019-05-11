@@ -7,15 +7,41 @@
     <meta charset="utf-8">
     <title>Global London</title>
 
+    <!--FULLPAGE-->
+    <link rel="stylesheet" type="text/css" href="https://alvarotrigo.com/fullPage/jquery.fullPage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://alvarotrigo.com/fullPage/jquery.fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
     <!--STYLESHEET-->
     <link rel="stylesheet" href="style.css">
+
+    <script>
+    //fullPage settings
+    $(function() {
+        $('#pages').fullpage({
+          anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+          navigation: true,
+          keyboardScrolling: false
+        });
+        $.fn.fullpage.setMouseWheelScrolling(false);
+    });
+
+    </script>
 
   </head>
 
   <body>
 
     <!--NAVIGATION TABS-->
-    <nav id='menu'></nav>
+    <!-- <nav id="menu">
+        <div data-menuanchor="page1" class="active"><a href="#page1" title="Top">1</a></div>
+        <div data-menuanchor="page2"><a href="#page2" title="Site Map">2</a></div>
+        <div data-menuanchor="page3"><a href="#page3" title="TFL">3</a></div>
+        <div data-menuanchor="page4"><a href="#page4" title="Yelp">4</a></div>
+        <div data-menuanchor="page5"><a href="#page5" title="Footfall">5</a></div>
+        <div data-menuanchor="page6"><a href="#page6" title="Twitter">6</a></div>
+    </nav> -->
 
     <!--PAGES-->
     <div id='pages'>
@@ -31,6 +57,7 @@
 
       <!--TABLE OF CONTENTS-->
       <div class='section section2'>
+        table of contents
         <div class='items item1'>
           <img scr=''>
           <h3></h3>
@@ -51,42 +78,36 @@
 
       <!--PAGE 3-->
       <div class="section section3">
-        <!--NAVIGATION TABS-->
-        <nav class='menu'></nav>
 
         <!--TITLE-->
         <div class="titleblock">
-          <h3></h3>
+          <h3>flight</h3>
           <p>Data source: <a href=""></a></p>
         </div>
 
         <!--MAP-->
-        <iframe id="" src="" height="100%" width="100%" frameBorder="0" scrolling="no"></iframe>
+        <iframe id="" src="" height="100%" width="100%" frameBorder="0"></iframe>
       </div>
 
       <!--PAGE 4-->
       <div class="section section4">
-        <!--NAVIGATION TABS-->
-        <nav class='menu'></nav>
 
         <!--TITLE-->
         <div class="titleblock">
-          <h3></h3>
+          <h3>residents</h3>
           <p>Data source: <a href=""></a></p>
         </div>
 
         <!--MAP-->
-        <iframe id="" src="" height="100%" width="100%" frameBorder="0" scrolling="no"></iframe>
+        <iframe id="" src="" height="100%" width="100%" frameBorder="0"></iframe>
       </div>
 
       <!--PAGE 5-->
       <div class="section section5">
-        <!--NAVIGATION TABS-->
-        <nav class='menu'></nav>
 
         <!--TITLE-->
         <div class="titleblock">
-          <h3></h3>
+          <h3>restaurants</h3>
           <p>Data source: <a href=""></a></p>
         </div>
 
@@ -96,17 +117,15 @@
 
       <!--PAGE 6-->
       <div class="section section6">
-        <!--NAVIGATION TABS-->
-        <nav class='menu'></nav>
 
         <!--TITLE-->
         <div class="titleblock">
-          <h3></h3>
+          <h3>shopping</h3>
           <p>Data source: <a href=""></a></p>
         </div>
 
         <!--MAP-->
-        <iframe id="" src="" height="100%" width="100%" frameBorder="0" scrolling="no"></iframe>
+        <iframe id="" src="" height="100%" width="100%" frameBorder="0"></iframe>
       </div>
 
       <!--ABOUT PAGE-->
