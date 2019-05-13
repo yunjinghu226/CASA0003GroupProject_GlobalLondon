@@ -23,8 +23,23 @@
 
   <body>
 
+    <!--Legend and Layer Control-->
+    <nav id='legend'></nav>
+
     <!--MAP-->
     <div id='map'></div>
+
+    <!--INFO-->
+    <!--Legend and Layer Control-->
+    <nav id='legend'></nav>
+    <!--General Statistics-->
+    <div class='info'>
+      <button class=collapsible></button>
+      <div class='content'><p>This interactive map is aimed to reveal a general pattern of the flows between London underground stations during the morning peak hours by visualizing the Origin-Destination matrix. The O-D matrix, an Excel file contained in the Rolling Origin & Destination Survey 2017 available from TfL, records the number of trips between every two stations during five different time periods in a typical weekday. Besides, the Stations Location CSV and KML files from TfL was also used. With Jupyter Notebook, the matrix were first cleaned to only keep the necessary attributes and drop entries with no trips between the two stations, and merged with the location data to geocode the start and end stations. After pre-processed, it was converted to line features with the XYtoLine tool in ArcGIS and points not involved in the flow map were removed from the station layer. Then the Shapefiles of flow lines and stations was added to Mapbox as tilesets and a style was created as base map. Finally an HTML file with CSS file were compiled to integrate the Mapbox layers, add functions and features, and adjust styles.</p>
+      </div>
+    </div>
+    <!--Features-->
+    <div id='hover'></div>
 
     <!--SCRIPT-->
     <script src='london_restaurants.js'></script>
