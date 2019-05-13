@@ -89,11 +89,18 @@ background: #3074a4;
   font-size: 12px;
 }
 
-#info {
+#cate_info {
   background-color: #ffffff;
   position:absolute;
   left:10px;
   top:21%;
+}
+
+#br_info {
+  background-color: #ffffff;
+  position:absolute;
+  left:10px;
+  top:41%;
 }
 
 </style>
