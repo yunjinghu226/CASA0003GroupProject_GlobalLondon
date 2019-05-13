@@ -21,6 +21,11 @@ map.on('load',function(){
     "url": "mapbox://alexyshu226.bc7wi6sp"
   });
 
+  map.addSource('borough',{
+    "type":"vector",
+    "url":"mapbox://alexyshu226.5aytwkhh"
+  });
+
   // add dot layers by category
   for (var i = 0; i < categories.length; i++) {
     map.addLayer({
@@ -33,8 +38,8 @@ map.on('load',function(){
         'circle-color': colors[i],
         'circle-opacity': 1,
         'circle-radius': {
-          'base': 1.75,
-          'stops': [[12, 2.5], [22, 180]]
+          'base': 2,
+          'stops': [[12, 3], [14, 6]]
           },
       },
       'filter': ['==','general_ca',categories[i]]
@@ -52,32 +57,99 @@ map.on('load',function(){
       'circle-color': '#ffffff',
       'circle-opacity': 1,
       'circle-radius': {
-        'base': 1.75,
-        'stops': [[12, 2.5], [22, 180]]
+        'base': 2,
+        'stops': [[12, 3], [14, 6]]
         },
-      'stroke-color': '#000000',
-      'stroke-width': 2,
-      'stroke-opacity': 1
-    }
-    //'filter': ['==','general_ca',""]
+      'circle-stroke-color': '#000000',
+      'circle-stroke-width': 2,
+      'circle-stroke-opacity': 1
+    },
+    'filter': ['==','general_ca',""]
   },'place-city-label-minor','place-city-label-major');
 
+  //change cursor to pointer when over dots
+  map.on('mousemove',function(e){
+    var dot = map.queryRenderedFeatures(e.point,{
+      layers:[ 'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other' ]
+    });
+    if (cate.length > 0) {
+      map.getCanvas().style.cursor = 'pointer';
+    } else {
+      map.getCanvas().style.cursor = '';
+    };
+  });
 
   // the three functions below add a hover effect to display the information for each category
-  map.on('mousemove', function (e) {
+  map.on('click', function (e) {
     var cate = map.queryRenderedFeatures(e.point, {
         layers: [ 'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other' ]
     });
 
     //hover-show texts
     if (cate.length > 0) {
-        document.getElementById('hover').innerHTML = cate[0].properties.general_ca;
+        document.getElementById('info').innerHTML = cate[0].properties.general_ca;
+        //hover-show border
+        map.setFilter('dot_hover', ["==", "general_ca", cate[0].properties.general_ca]);
     } else {
-        document.getElementById('hover').innerHTML = 'hover over dots';
+        document.getElementById('info').innerHTML = 'hover over dots or click on boroughs';
+        map.setFilter('dot_hover',["==",'general_ca','']);
     }
 
-    //hover-show border
-    map.setFilter('dot_hover', ["==", "general_ca", cate[0].properties.general_ca]);
+  });
+
+  //add borough layer
+  map.addLayer({
+    'id': 'boroughs',
+    'type': 'line',
+    'source': 'borough',
+    'source-layer': 'borough-08zmct', // name of tilesets
+    'layout': {'visibility':'visible'},
+    'paint': {
+      'line-color': '#b8b8b8',
+      'line-opacity': 1,
+      'line-width': 2
+    }
+  },'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other','place-city-label-minor','place-city-label-major');
+
+  //add invisible borough layer for clicking
+  map.addLayer({
+    'id': 'borough_fill',
+    'type': 'fill',
+    'source': 'borough',
+    'source-layer': 'borough-08zmct', // name of tilesets
+    'layout': {'visibility':'visible'},
+    'paint': {
+      'fill-color': '#ffffff',
+      'fill-opacity': 0
+    }
+  },'place-city-label-minor','place-city-label-major');
+
+  //add borough clicked layer
+  map.addLayer({
+    'id': 'borough_click',
+    'type': 'line',
+    'source': 'borough',
+    'source-layer': 'borough-08zmct', // name of tilesets
+    'layout': {'visibility':'visible'},
+    'paint': {
+      'line-color': '#595959',
+      'line-opacity': 1,
+      'line-width': 4
+    },
+    'filter': ['==','name','']
+  },'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other','place-city-label-minor','place-city-label-major');
+
+  map.on('mousemove',function(e){
+    var br = map.queryRenderedFeatures(e.point,{
+      layers:['borough_fill']
+    });
+    if (br.length > 0) {
+      document.getElementById('info').innerHTML = br[0].properties.name;
+      map.setFilter('borough_click',['==','name',br[0].properties.name])
+    } else {
+      document.getElementById('info').innerHTML = 'hover over dots or click on boroughs';
+      map.setFilter('borough_click',['==','name',''])
+    }
   });
 
 });

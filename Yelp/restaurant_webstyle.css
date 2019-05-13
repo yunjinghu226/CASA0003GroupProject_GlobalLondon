@@ -45,7 +45,7 @@ color: #ffffff;
 background: #3074a4;
 }
 
-.info {
+.stat {
   position:absolute;
   left:10px;
   bottom:30px;
@@ -89,7 +89,7 @@ background: #3074a4;
   font-size: 12px;
 }
 
-#hover {
+#info {
   background-color: #ffffff;
   position:absolute;
   left:10px;
