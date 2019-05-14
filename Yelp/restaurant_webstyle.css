@@ -48,8 +48,8 @@ background: #3074a4;
 .stat {
   position:absolute;
   left:10px;
-  bottom:30px;
-  width:300px;
+  top:61%;
+  width:320px;
 }
 
 .collapsible {
@@ -57,7 +57,7 @@ background: #3074a4;
   color: white;
   cursor: pointer;
   padding: 0px 10px;
-  width: 300px;
+  width: 320px;
   border: none;
   text-align: left;
   outline: none;
@@ -81,8 +81,8 @@ background: #3074a4;
 }
 
 .content {
-  padding: 0 10px;
   max-height: 0;
+  padding: 0 10px;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   background-color: #f0f0f0;
@@ -101,6 +101,10 @@ background: #3074a4;
   position:absolute;
   left:10px;
   top:41%;
+}
+
+.barchart {
+  width:300px;
 }
 
 </style>

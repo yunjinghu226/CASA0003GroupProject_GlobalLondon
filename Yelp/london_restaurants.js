@@ -11,6 +11,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHlzaHUyMjYiLCJhIjoiY2puMzl0bzRrMmR5eDNwc
 // categories and color palette
 var categories = [ 'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other' ];
 var colors = ['#fc9977','#fcbd90','#b48d6c','#bd6666','#a3d96a','#80d996','#57cfc9','#51c0db','#70a5d4','#6d74cf','#584478','#e1afbe','#debb59']
+var cate_count = [1556,878,958,648,498,608,778,273,349,402,143,492,141]
 
 // add functional features
 map.on('load',function(){
@@ -85,11 +86,11 @@ map.on('load',function(){
         layers: [ 'Italian','Chinese','Indian','Japanese_Korean','Pakistani','Southeast_Asian','Mediterranean','Middle_Eastern','American','European_Other','African','Latin_American','Other' ]
     });
 
-    //hover-show texts
     if (cate.length > 0) {
-        document.getElementById('cate_info').innerHTML = cate[0].properties.general_ca;
-        //hover-show border
-        map.setFilter('dot_click', ["==", "general_ca", cate[0].properties.general_ca]);
+        var current_ca = cate[0].properties.general_ca;
+        var current_co = cate_count[categories.indexOf(current_ca)];
+        document.getElementById('cate_info').innerHTML = current_ca+": "+current_co.toString();
+        map.setFilter('dot_click', ["==", "general_ca", current_ca]);
     } else {
         document.getElementById('cate_info').innerHTML = 'click on dots for infomation about the category';
         map.setFilter('dot_click',["==",'general_ca','']);
@@ -198,3 +199,33 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 };
+
+//Generate charts
+// bar chart for the total number of each category
+var ctx = document.getElementById('total_bar');
+var total_bar = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: categories,
+        datasets: [{
+            label: '# of restaurants',
+            data: cate_count,
+            backgroundColor: colors,
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: false
+                }
+            }]
+        }
+    }
+});
+
+// bar chart for the number of restaurants of a category in different boroughs
+  // define a function, take the category name, return a list of top ten boroughs and a list of number of restaurants in each of them
+  function distribution(category){
+
+  }
