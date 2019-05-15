@@ -1,0 +1,72 @@
+{
+  "African": {
+    "max": 21,
+    "mean": 4.333333333,
+    "total": 143
+  },
+  "American": {
+    "max": 74,
+    "mean": 10.57575758,
+    "total": 349
+  },
+  "Chinese": {
+    "max": 179,
+    "mean": 26.60606061,
+    "total": 878
+  },
+  "European_Other": {
+    "max": 72,
+    "mean": 12.18181818,
+    "total": 402
+  },
+  "French": {
+    "max": 109,
+    "mean": 10.72727273,
+    "total": 354
+  },
+  "Indian": {
+    "max": 81,
+    "mean": 29.03030303,
+    "total": 958
+  },
+  "Italian": {
+    "max": 332,
+    "mean": 47.15151515,
+    "total": 1556
+  },
+  "Japanese_Korean": {
+    "max": 173,
+    "mean": 19.63636364,
+    "total": 648
+  },
+  "Latin_American": {
+    "max": 74,
+    "mean": 14.90909091,
+    "total": 492
+  },
+  "Mediterranean": {
+    "max": 110,
+    "mean": 23.57575758,
+    "total": 778
+  },
+  "Middle_Eastern": {
+    "max": 93,
+    "mean": 8.272727273,
+    "total": 273
+  },
+  "Other": {
+    "max": 34,
+    "mean": 4.272727273,
+    "total": 141
+  },
+  "Pakistani": {
+    "max": 41,
+    "mean": 15.09090909,
+    "total": 498
+  },
+  "Southeast_Asian": {
+    "max": 104,
+    "mean": 18.42424242,
+    "total": 608
+  }
+}
