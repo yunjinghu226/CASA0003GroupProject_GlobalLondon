@@ -89,7 +89,7 @@ background: #3074a4;
   font-size: 12px;
 }
 
-#cate_info {
+.cate {
   background-color: #ffffff;
   position:absolute;
   left:10px;
