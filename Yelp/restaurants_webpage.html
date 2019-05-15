@@ -33,8 +33,6 @@
     <div id='map'></div>
 
     <!--INFO-->
-    <!--Legend and Layer Control-->
-    <nav id='legend'></nav>
     <!--General Statistics-->
     <div class='stat'>
       <button class=collapsible></button>
@@ -52,6 +50,11 @@
       <div id='br_name'><p>hover over boroughs for more information</p></div>
       <div class='barchart'><canvas id='brgh_bar'></canvas></div>
     </div>
+
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    </div>
+    <button class="openbtn" onclick="openNav()"></button>
 
     <!--SCRIPT-->
     <script src='london_restaurants.js'></script>

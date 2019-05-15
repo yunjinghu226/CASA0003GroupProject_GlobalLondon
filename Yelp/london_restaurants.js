@@ -824,6 +824,7 @@ function barchartplotter(id,data,label){
           }]
       },
       options: {
+          events: ['click'],
           scales: {
               yAxes: [{
                   ticks: {
@@ -841,3 +842,13 @@ for (var x in categories) {
   cate_count.push(cat[categories[x]].total)
 };
 barchartplotter('total_bar',cate_count,'# of restaurants');
+
+/* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+}
+
+/* Set the width of the sidebar to 0 (hide it) */
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
