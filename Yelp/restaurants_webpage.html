@@ -33,29 +33,38 @@
     <div id='map'></div>
 
     <!--INFO-->
-    <!--General Statistics-->
-    <div class='stat'>
-      <button class=collapsible></button>
-      <div class='content'>
-        <p>(description)</p>
-        <div class='barchart'><canvas id='total_bar'></canvas></div>
+    <div class='info'>
+      <!--General Statistics-->
+      <div class='stat'>
+        <button id='statbutton' class="openbtn" onclick="openStat()"></button>
+        <div id="statPanel" class="sidepanel">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeStat()">&times;</a>
+          <div class='content'>
+            (description)
+            <div class='barchart'><canvas id='total_bar'></canvas></div>
+          </div>
+        </div>
+      </div>
+      <!--Category-->
+      <div class='cate'>
+        <button id='catebutton' class="openbtn" onclick="openCate()"></button>
+        <div id="catePanel" class="sidepanel">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeCate()">&times;</a>
+          <div class='content'><div id='cate_info'>click on dots for infomation about the category</div></div>
+        </div>
+      </div>
+      <!--Borough-->
+      <div class='br_info'>
+        <button id='brbutton' class="openbtn" onclick="openBr()"></button>
+        <div id="brPanel" class="sidepanel">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeBr()">&times;</a>
+          <div class='content'>
+            <div id='br_name'>hover over boroughs for more information</div>
+            <div class='barchart'><canvas id='brgh_bar'></canvas></div>
+          </div>
+        </div>
       </div>
     </div>
-    <!--Category-->
-    <div class='cate'>
-      <div id='cate_info'>click on dots for infomation about the category</div>
-    </div>
-    <!--Borough-->
-    <div id='br_info'>
-      <div id='br_name'><p>hover over boroughs for more information</p></div>
-      <div class='barchart'><canvas id='brgh_bar'></canvas></div>
-    </div>
-
-    <div id="mySidepanel" class="sidepanel">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    </div>
-    <button class="openbtn" onclick="openNav()"></button>
-
     <!--SCRIPT-->
     <script src='london_restaurants.js'></script>
 

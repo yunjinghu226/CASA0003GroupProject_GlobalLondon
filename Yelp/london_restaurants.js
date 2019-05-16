@@ -693,7 +693,7 @@ map.on('load',function(){
     if (cate.length > 0) {
         var current_ca = cate[0].properties.general_ca;
         var current_co = cate_count[categories.indexOf(current_ca)];
-        document.getElementById('cate_info').innerHTML = current_ca+"<br>Total # in London: "+current_co.toString()+"<br>Mean # in a borough: "+cat[current_ca].mean.toString()+"<br>Max # in a borough: "+cat[current_ca].max.toString();
+        document.getElementById('cate_info').innerHTML = "<strong>"+current_ca+"</strong>"+"<br>Total # in London: "+current_co.toString()+"<br>Mean # in a borough: "+cat[current_ca].mean.toString()+"<br>Max # in a borough: "+cat[current_ca].max.toString();
         map.setFilter('dot_click', ["==", "general_ca", current_ca]);
 
     } else {
@@ -795,22 +795,6 @@ for (var i = 0; i < categories.length; i++) {
   layers.appendChild(link);
 };
 
-// general info collapsible
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-};
-
 // define function to generate barchart
 function barchartplotter(id,data,label){
   new Chart(document.getElementById(id), {
@@ -843,12 +827,22 @@ for (var x in categories) {
 };
 barchartplotter('total_bar',cate_count,'# of restaurants');
 
-/* Set the width of the sidebar to 250px (show it) */
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "250px";
+// control the open and close of side collapsibles
+function openStat() {
+  document.getElementById("statPanel").style.width = "500px";
 }
-
-/* Set the width of the sidebar to 0 (hide it) */
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
+function closeStat() {
+  document.getElementById("statPanel").style.width = "0";
+}
+function openCate() {
+  document.getElementById("catePanel").style.width = "500px";
+}
+function closeCate() {
+  document.getElementById("catePanel").style.width = "0";
+}
+function openBr() {
+  document.getElementById("brPanel").style.width = "500px";
+}
+function closeBr() {
+  document.getElementById("brPanel").style.width = "0";
 }

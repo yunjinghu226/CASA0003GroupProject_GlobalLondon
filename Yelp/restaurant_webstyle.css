@@ -1,7 +1,7 @@
 <style>
-body { margin:0; padding:0; }
+body { margin:0; padding:0; overflow: hidden}
 
-#map { position:absolute; top:0; bottom:0; width:100%; height:100%;}
+#map { position:absolute; top:0; left:0; width:100%; height:100%; }
 
 #legend {
 opacity: 1;
@@ -45,120 +45,113 @@ color: #ffffff;
 background: #3074a4;
 }
 
-.stat {
-  position:absolute;
-  right:10px;
-  top:10px;
-  width:320px;
-}
-
-.collapsible {
-  background-color: #cf4217;
-  color: white;
-  cursor: pointer;
-  padding: 0px 10px;
-  width: 320px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active, .collapsible:hover {
-  background-color: #e5a448;
-}
-
-.collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 0px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.content {
-  max-height: 0;
-  padding: 0 10px;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f0f0f0;
+.info {
+  font-family: Helvetica, 'Open Sans', sans-serif;
   font-size: 12px;
+  color:#404040;
+  top:0;
+  right:0;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  margin: none;
 }
 
-.cate {
-  background-color: #ffffff;
-  position:absolute;
-  right:10px;
-  top:41%;
+.info .stat {
+  height: 40%;
+  top:0;
 }
 
-#br_info {
-  background-color: #ffffff;
-  position:absolute;
-  right:10px;
-  top:61%;
+.info .cate {
+  height: 20%;
+  top: 40%;
 }
 
-.barchart {
-  width:300px;
+.info .br_info {
+  height: 40%;
+  top: 60%;
 }
 
-/* The sidepanel menu */
+.openbtn {
+  position: absolute;
+  width: 15px;
+  border-radius: 3px;
+  right: 0;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+  margin: none;
+  padding: none;
+}
+
 .sidepanel {
   border-radius: 6px;
-  height: 300px; /* Specify a height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0;
-  right: 10px;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 10px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
-}
-
-/* The sidepanel links */
-.sidepanel a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+  position: fixed;
+  right: 0;
+  width:500px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: none;
+  padding: none;
   transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidepanel a:hover {
-  color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   font-size: 20px;
-  margin-left: 10px;
+  color: #818181;
 }
 
-/* Style the button that is used to open the sidepanel */
-.openbtn {
-  position: absolute;
-  border-radius: 3px;
-  top:0;
-  right:0;
-  width:10px;
-  height:300px;
-  cursor: pointer;
-  background-color: #ca483f;
-  color: white;
-  padding: none;
-  border: none;
+.sidepanel a {
+  text-decoration: none;
+}
+
+.sidepanel a:hover {
+  color: #000
+}
+
+.content {
+  padding: 16px 8px 8px 10px;
+}
+
+.stat #statbutton {
+  background-color: #A186B8;
+  height:inherit;
+  top:inherit;
+}
+
+.stat #statPanel {
+  top:inherit;
+  height:inherit;
+}
+
+.cate #catebutton {
+  background-color: #FFBE57;
+  height:inherit;
+  top:inherit;
+}
+
+.cate #catePanel {
+  top:inherit;
+  height:inherit;
+}
+
+.br_info #brbutton {
+  background-color: #438F5E;
+  height:inherit;
+  top:inherit;
+}
+
+.br_info #brPanel {
+  top:inherit;
+  height:inherit;
+}
+
+.barchart {
+  width:480px;
 }
 
 </style>
