@@ -7,24 +7,24 @@ body { margin:0; padding:0; overflow: hidden}
 opacity: 1;
 position: absolute;
 z-index: 1;
-bottom: 10px;
+bottom: 30px;
 left: 10px;
-border-radius: 3px;
 width: 120px;
 border: 1px solid rgba(0,0,0,0.4);
 font-family: 'Open Sans', sans-serif;
 }
 
 #legend a {
-font-size: 13px;
-color: #404040;
+font-size: 12px;
+font-weight: bold;
 display: block;
 margin: 0;
 padding: 0;
 padding: 10px;
 text-decoration: none;
 border-bottom: 1px solid rgba(0,0,0,0.25);
-text-align: center;
+text-align: left;
+background-color: #fff;
 }
 
 #legend a:last-child {
@@ -33,21 +33,20 @@ border: none;
 
 #legend a:hover {
 background-color: #f8f8f8;
-color: #404040;
 }
 
 #legend a.active {
-background-color: #3887be;
-color: #ffffff;
+background-color: #fff;
 }
 
 #legend a.active:hover {
-background: #3074a4;
+background: #f8f8f8;
+color: #000
 }
 
 .info {
   font-family: Helvetica, 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color:#404040;
   top:0;
   right:0;
@@ -58,21 +57,18 @@ background: #3074a4;
 }
 
 .info .stat {
-  height: 40%;
+  height: 45%;
   top:0;
-  bottom: 60%;
 }
 
 .info .cate {
-  height: 20%;
-  top: 40%;
-  bottom: 40%
+  height: 10%;
+  top: 45%;
 }
 
 .info .br_info {
-  height: 40%;
-  top: 60%;
-  bottom:0;
+  height: 45%;
+  top: 55%;
 }
 
 .openbtn {
@@ -91,7 +87,7 @@ background: #3074a4;
   /* border-radius: 6px; */
   position: fixed;
   right: 0;
-  width:497px;
+  width:297px;
   border-left: 3px solid;
   background-color: #fff;
   overflow-x: hidden;
@@ -161,7 +157,8 @@ background: #3074a4;
 }
 
 .barchart {
-  width:480px;
+  width:260px;
+  padding-right: 8px;
 }
 
 </style>

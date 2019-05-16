@@ -693,7 +693,7 @@ map.on('load',function(){
     if (cate.length > 0) {
         var current_ca = cate[0].properties.general_ca;
         var current_co = cate_count[categories.indexOf(current_ca)];
-        document.getElementById('cate_info').innerHTML = "<strong>"+current_ca+"</strong>"+"<br>Total # in London: "+current_co.toString()+"<br>Mean # in a borough: "+cat[current_ca].mean.toString()+"<br>Max # in a borough: "+cat[current_ca].max.toString();
+        document.getElementById('cate_info').innerHTML = "<strong>"+current_ca+"</strong>"+"<br><strong>Total</strong> # in London: "+current_co.toString()+"<br><strong>Mean</strong> # in a borough: "+cat[current_ca].mean.toString()+"<br><strong>Max</strong> # in a borough: "+cat[current_ca].max.toString();
         map.setFilter('dot_click', ["==", "general_ca", current_ca]);
 
     } else {
@@ -774,31 +774,39 @@ for (var i = 0; i < categories.length; i++) {
   link.href = '#';
   link.className = 'active';
   link.textContent = id;
-
-  link.onclick = function (e) {
-    var clickedLayer = this.textContent;
-    e.preventDefault();
-    e.stopPropagation();
-
-    var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-    if (visibility === 'visible') {
-      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-      this.className = '';
-    } else {
-      this.className = 'active';
-      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-    }
-  };
+  link.style = "color:"+colors[i];
 
   var layers = document.getElementById('legend');
   layers.appendChild(link);
 };
 
+for (var i = 0; i < categories.length; i++) {
+  var legend = document.getElementById('legend').children[i];
+  var visibility = map.getLayoutProperty(legend.textContent,'visibility');
+  if (visibility === 'visible') {
+    legend.onclick = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      legend.className = '';
+      legend.style = "color:#404040;";
+      map.setLayoutProperty(legend.textContent, 'visibility', 'none');
+    }
+  } else {
+    legend.onclick = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.className = 'active';
+      this.style = "color:"+colors[i];
+      map.setLayoutProperty(legend.textContent, 'visibility', 'visible');
+    }
+  }
+};
+
+
 // define function to generate barchart
 function barchartplotter(id,data,label){
   new Chart(document.getElementById(id), {
-      type: 'bar',
+      type: 'horizontalBar',
       data: {
           labels: categories,
           datasets: [{
@@ -829,19 +837,19 @@ barchartplotter('total_bar',cate_count,'# of restaurants');
 
 // control the open and close of side collapsibles
 function openStat() {
-  document.getElementById("statPanel").style.width = "500px";
+  document.getElementById("statPanel").style.width = "297px";
 }
 function closeStat() {
   document.getElementById("statPanel").style.width = "0";
 }
 function openCate() {
-  document.getElementById("catePanel").style.width = "500px";
+  document.getElementById("catePanel").style.width = "297px";
 }
 function closeCate() {
   document.getElementById("catePanel").style.width = "0";
 }
 function openBr() {
-  document.getElementById("brPanel").style.width = "500px";
+  document.getElementById("brPanel").style.width = "297px";
 }
 function closeBr() {
   document.getElementById("brPanel").style.width = "0";
