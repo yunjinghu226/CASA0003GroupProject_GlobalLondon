@@ -9,26 +9,21 @@ position: absolute;
 z-index: 1;
 bottom: 30px;
 left: 10px;
-width: 120px;
-border: 1px solid rgba(0,0,0,0.4);
+width: 130px;
 font-family: 'Open Sans', sans-serif;
 }
 
 #legend a {
-font-size: 12px;
+font-size: 13px;
 font-weight: bold;
 display: block;
 margin: 0;
-padding: 0;
-padding: 10px;
+padding: 6px;
 text-decoration: none;
-border-bottom: 1px solid rgba(0,0,0,0.25);
+border-left: 10px dashed #fff;
 text-align: left;
 background-color: #fff;
-}
-
-#legend a:last-child {
-border: none;
+font
 }
 
 #legend a:hover {
@@ -37,11 +32,11 @@ background-color: #f8f8f8;
 
 #legend a.active {
 background-color: #fff;
+border-left: 10px solid #595959;
 }
 
 #legend a.active:hover {
 background: #f8f8f8;
-color: #000
 }
 
 .info {

@@ -776,32 +776,23 @@ for (var i = 0; i < categories.length; i++) {
   link.textContent = id;
   link.style = "color:"+colors[i];
 
+  link.onclick = function(e){
+    var clickedLayer = this.textContent
+    var visibility = map.getLayoutProperty(clickedLayer,'visibility');
+    e.preventDefault();
+    e.stopPropagation();
+    if (visibility === 'visible') {
+      this.className = '';
+      map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+    } else {
+      this.className = 'active';
+      map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+    }
+  }
+
   var layers = document.getElementById('legend');
   layers.appendChild(link);
 };
-
-for (var i = 0; i < categories.length; i++) {
-  var legend = document.getElementById('legend').children[i];
-  var visibility = map.getLayoutProperty(legend.textContent,'visibility');
-  if (visibility === 'visible') {
-    legend.onclick = function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      legend.className = '';
-      legend.style = "color:#404040;";
-      map.setLayoutProperty(legend.textContent, 'visibility', 'none');
-    }
-  } else {
-    legend.onclick = function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.className = 'active';
-      this.style = "color:"+colors[i];
-      map.setLayoutProperty(legend.textContent, 'visibility', 'visible');
-    }
-  }
-};
-
 
 // define function to generate barchart
 function barchartplotter(id,data,label){
