@@ -1,25 +1,39 @@
 /* GENERAL PAGE SETTINGS */
 
 .section {
-
+  font-family: Helvetica, 'Open Sans', sans-serif;
 }
 
 /* COVER PAGE */
 
 .section1 {
+  /* background-color: rgba(29,166,204); */
+  background-image: url(pictures/coverpic.png)
+}
 
+.title {
+  left: 45%;
+  width: 45%;
+  text-align: justify;
+  text-justify: inter-character;
+  color: #fff;
+  position: absolute;
 }
 
 #prjtitle {
-
+  text-align: justify;
+  text-justify: inter-character;
+  font-size: 36px;
 }
 
 #subtitle {
-
+  text-align: justify;
+  font-size: 20px;
 }
 
 #coverpic {
-
+  position: absolute;
+  left: 5%;
 }
 
 #pinpoint {
@@ -75,17 +89,22 @@
   top: 10px;
   left: 10px;
   z-index: 2;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  border-radius: 3px;
+  padding: 8px 8px 8px 8px;
+  border-radius: 5px;
+  background-color: rgba(29,166,204,0.5);
+  color: #fff;
+  font-family: Helvetica, 'Open Sans', sans-serif;
 }
 
 h3 {
-
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 p {
-
+  font-size: 12px;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }

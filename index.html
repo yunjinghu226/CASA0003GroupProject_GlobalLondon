@@ -22,6 +22,8 @@
         $('#pages').fullpage({
           anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
           navigation: true,
+          navigationPosition: 'left',
+          navigationTooltips: ['Welcome','Guide','Flight','Residents','Restaurants','Brands'],
           keyboardScrolling: false
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
@@ -48,10 +50,12 @@
 
       <!--COVER PAGE-->
       <div class='section section1'>
-        <img scr='' id='coverpic'>
+        <img scr='/pictures/coverpic.svg' alt='earth' id='coverpic' width="500" height="500">
         <img scr='' id='info'>
-        <div id='prjtitle'>HELLO<br>WORLD</div>
-        <div id='subtitle'>FROM LONDONERS</div>
+        <div class='title'>
+          <div id='prjtitle'>HELLO<br>WORLD</div>
+          <div id='subtitle'>FROM LONDONERS</div>
+        </div>
       </div>
 
       <!--TABLE OF CONTENTS-->
@@ -106,8 +110,8 @@
 
         <!--TITLE-->
         <div class="titleblock">
-          <h3>restaurants</h3>
-          <p>Data source: <a href=""></a></p>
+          <h3>Global Cuisines in London</h3>
+          <p>Data source: <a href="https://www.yelp.com/developers/documentation/v3/business">Yelp Fusion API</a></p>
         </div>
 
         <!--MAP-->
