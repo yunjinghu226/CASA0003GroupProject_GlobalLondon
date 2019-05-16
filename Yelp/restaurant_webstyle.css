@@ -60,22 +60,25 @@ background: #3074a4;
 .info .stat {
   height: 40%;
   top:0;
+  bottom: 60%;
 }
 
 .info .cate {
   height: 20%;
   top: 40%;
+  bottom: 40%
 }
 
 .info .br_info {
   height: 40%;
   top: 60%;
+  bottom:0;
 }
 
 .openbtn {
   position: absolute;
   width: 15px;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   right: 0;
   z-index: 1;
   cursor: pointer;
@@ -85,10 +88,11 @@ background: #3074a4;
 }
 
 .sidepanel {
-  border-radius: 6px;
+  /* border-radius: 6px; */
   position: fixed;
   right: 0;
-  width:500px;
+  width:497px;
+  border-left: 3px solid;
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -126,6 +130,8 @@ background: #3074a4;
 .stat #statPanel {
   top:inherit;
   height:inherit;
+  bottom:inherit;
+  border-color: #A186B8;
 }
 
 .cate #catebutton {
@@ -137,6 +143,8 @@ background: #3074a4;
 .cate #catePanel {
   top:inherit;
   height:inherit;
+  bottom:inherit;
+  border-color: #FFBE57;
 }
 
 .br_info #brbutton {
@@ -148,6 +156,8 @@ background: #3074a4;
 .br_info #brPanel {
   top:inherit;
   height:inherit;
+  bottom:inherit;
+  border-color: #438F5E;
 }
 
 .barchart {

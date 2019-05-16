@@ -38,30 +38,36 @@
       <div class='stat'>
         <button id='statbutton' class="openbtn" onclick="openStat()"></button>
         <div id="statPanel" class="sidepanel">
+          <div style="height:3px;width:497px;top:0;background:#A186B8;"></div>
           <a href="javascript:void(0)" class="closebtn" onclick="closeStat()">&times;</a>
           <div class='content'>
             (description)
             <div class='barchart'><canvas id='total_bar'></canvas></div>
           </div>
+          <!-- <div style="height:3px;width:497px;bottom:inherit;background:#A186B8;"></div> -->
         </div>
       </div>
       <!--Category-->
       <div class='cate'>
         <button id='catebutton' class="openbtn" onclick="openCate()"></button>
         <div id="catePanel" class="sidepanel">
+          <div style="height:3px;width:497px;top:0;background:#FFBE57;"></div>
           <a href="javascript:void(0)" class="closebtn" onclick="closeCate()">&times;</a>
           <div class='content'><div id='cate_info'>click on dots for infomation about the category</div></div>
+          <!-- <div style="height:3px;width:497px;bottom:inherit;background:#FFBE57;"></div> -->
         </div>
       </div>
       <!--Borough-->
       <div class='br_info'>
         <button id='brbutton' class="openbtn" onclick="openBr()"></button>
         <div id="brPanel" class="sidepanel">
+          <div style="height:3px;width:497px;top:0;background:#438F5E;"></div>
           <a href="javascript:void(0)" class="closebtn" onclick="closeBr()">&times;</a>
           <div class='content'>
             <div id='br_name'>hover over boroughs for more information</div>
             <div class='barchart'><canvas id='brgh_bar'></canvas></div>
           </div>
+          <!-- <div style="height:3px;width:497px;bottom:inherit;background:#438F5E;"></div> -->
         </div>
       </div>
     </div>
