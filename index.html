@@ -21,9 +21,7 @@
     $(function() {
         $('#pages').fullpage({
           anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
-          navigation: true,
-          navigationPosition: 'left',
-          navigationTooltips: ['Welcome','Guide','Flight','Residents','Restaurants','Brands'],
+          menu: '#menu',
           keyboardScrolling: false
         });
         $.fn.fullpage.setMouseWheelScrolling(false);
@@ -36,14 +34,15 @@
   <body>
 
     <!--NAVIGATION TABS-->
-    <!-- <nav id="menu">
-        <div data-menuanchor="page1" class="active"><a href="#page1" title="Top">1</a></div>
-        <div data-menuanchor="page2"><a href="#page2" title="Site Map">2</a></div>
-        <div data-menuanchor="page3"><a href="#page3" title="TFL">3</a></div>
-        <div data-menuanchor="page4"><a href="#page4" title="Yelp">4</a></div>
-        <div data-menuanchor="page5"><a href="#page5" title="Footfall">5</a></div>
-        <div data-menuanchor="page6"><a href="#page6" title="Twitter">6</a></div>
-    </nav> -->
+    <ul id="menu">
+        <li data-menuanchor="page1" class='active'><a href="#page1" title="Welcome"><img src="pictures/home.png"></a></li>
+        <li data-menuanchor="page2"><a href="#page2" title="Guide"><img src="pictures/toc.png"></a></li>
+        <li data-menuanchor="page3"><a href="#page3" title="Flight"><img src="pictures/airport.png"></a></li>
+        <li data-menuanchor="page4"><a href="#page4" title="Residents"><img src="pictures/people.png"></a></li>
+        <li data-menuanchor="page5"><a href="#page5" title="Restaurants"><img src="pictures/food.png"></a></li>
+        <li data-menuanchor="page6"><a href="#page6" title="Brands"><img src="pictures/shopping.png"></a></li>
+        <li onclick="on()"><img src="pictures/info.png" title="About"></li>
+    </ul>
 
     <!--PAGES-->
     <div id='pages'>
@@ -57,7 +56,7 @@
           <p style="font-size:126px;">WOLRD</p>
           <p style="font-size:44px;">FROM LONDONERS</p>
         </div>
-        <a href='#page2' id="pulsating"></a>
+        <a href='#page2' id="pulsating" title="Fly to London now!"></a>
       </div>
 
       <!--TABLE OF CONTENTS-->

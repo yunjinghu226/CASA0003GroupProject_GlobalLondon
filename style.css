@@ -208,9 +208,42 @@
 
 /* MAP PAGE SETTINGS */
 
-.menu{
-
+#menu {
+    position: fixed;
+    top: 60px;
+    left: 5px;
+    height: 10px;
+    width: 50px;
+    z-index: 70;
+    padding: 0;
+    margin: 0;
 }
+
+#menu li {
+    display: block;
+    float: left;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.75vw;
+    margin:2px;
+}
+
+#menu li img {
+    width: 2vw;
+    position: relative;
+    top: 10%;
+    left: 15%;
+}
+
+#menu li:hover {
+    margin:8px;
+    cursor: pointer;
+}
+
+#menu li.active {
+  margin: 8px;
+}
+
 
 .titleblock {
   position: absolute;
