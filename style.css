@@ -11,14 +11,16 @@
 
 .title {
   left: 60%;
-  top: 35%;
-  text-align: justify;
-  text-justify: inter-character;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
   color: #595959;
   font-weight: bold;
   position: absolute;
   font-family: "Lucida Console", Monaco, monospace
 }
+
+/* typing effect */
 
 .title p {
   border-right: .15em solid rgba(29,166,204);
@@ -28,16 +30,16 @@
 
 .title p:nth-child(1) {
   width: 3.3em;
-  -webkit-animation: type 1.5s steps(20, end);
-  animation: type 1.5s steps(20, end);
+  -webkit-animation: type 1.5s steps(10, end);
+  animation: type 1.5s steps(10, end);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 .title p:nth-child(2) {
   width: 3.3em;
   opacity: 0;
-  -webkit-animation: type2 1.5s steps(20, end);
-  animation: type2 1.5s steps(20, end);
+  -webkit-animation: type2 1.5s steps(10, end);
+  animation: type2 1.5s steps(10, end);
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
   -webkit-animation-fill-mode: forwards;
@@ -146,27 +148,42 @@
   }
 }
 
-
 #coverpic {
   position: absolute;
-  top:-10%;
-  left:-25%;
+  top:-15%;
+  left:-20%;
   width: 1200px;
   height: 1200px;
 }
 
-#pinpoint {
-
+#pulsating {
+    position: absolute;
+    top:58%;
+    left:12.5%;
+    background-color: #B83735;
+    -webkit-border-radius: 30px;
+    height: 60px;
+    width: 60px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 1.0
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
 
 #info {
 
 }
 
+
 /* TABLE OF CONTENTS */
 
 .section2 {
-  background-image: url();
+  background-image: url("pictures/contentback.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
   font-family: Helvetica, 'Open Sans', sans-serif;
 }
 
@@ -175,27 +192,30 @@
 }
 
 .items img {
-
+  height: 160px;
+  width:auto;
+  position: absolute;
+  z-index: 2;
 }
 
 .items h3 {
-
+  color:#595959;
 }
 
 .item1 {
-
+  left:10%;
 }
 
 .item2 {
-
+  left:30%;
 }
 
 .item3 {
-
+  left:50%;
 }
 
 .item4 {
-
+  left:70%;
 }
 
 /* MAP PAGE SETTINGS */
