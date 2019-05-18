@@ -269,3 +269,18 @@ p {
   border: 0;
   padding: 0;
 }
+
+/*about page*/
+
+.section7 {
+  background-color: rgba(29,166,204);
+  font-family: Helvetica, 'Open Sans', sans-serif;
+}
+
+#aboutText {
+    position: ;
+    text-align: center;
+    color:#fff;
+    margin: auto;
+    left: 40%;
+}

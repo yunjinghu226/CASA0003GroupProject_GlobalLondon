@@ -20,7 +20,7 @@
     //fullPage settings
     $(function() {
         $('#pages').fullpage({
-          anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+          anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6','page7'],
           menu: '#menu',
           keyboardScrolling: false
         });
@@ -41,7 +41,7 @@
         <li data-menuanchor="page4"><a href="#page4" title="Residents"><img src="pictures/people.png"></a></li>
         <li data-menuanchor="page5"><a href="#page5" title="Restaurants"><img src="pictures/food.png"></a></li>
         <li data-menuanchor="page6"><a href="#page6" title="Brands"><img src="pictures/shopping.png"></a></li>
-        <li onclick="on()"><img src="pictures/info.png" title="About"></li>
+        <li data-menuanchor="page7"><a href="#page7" title="About"><img src="pictures/info.png"></a></li>
     </ul>
 
     <!--PAGES-->
@@ -134,12 +134,22 @@
         <iframe id="" src="" height="100%" width="100%" frameBorder="0"></iframe>
       </div>
 
-      <!--ABOUT PAGE-->
+      <!--PAGE 6-->
+      <div class="section section7">
+        <div id="aboutText">
+            <h3>Global London</h3>
+            <br/>
 
+            <p>
+                <br/>Creators : Bowen Zhang, Chia-Yin Lu, Fei Xu, Yunjing Hu
+                <br/>Map engine : <a href="https://www.mapbox.com/" target="_blank">Mapbox GL JS</a>
+                <br/>Github : <a href="https://github.com/yunjinghu226/CASA0003GroupProject_GlobalLondon" target="_blank">@Globel_London</a>
+                <br/>
+                <br/>@ 2019 CASA, University College London</p>
+        </div>
+      </div>
 
     </div>
-
-    <script src='effect.js'></script>
 
   </body>
 
