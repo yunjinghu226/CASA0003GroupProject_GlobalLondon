@@ -1,16 +1,10 @@
-/* GENERAL PAGE SETTINGS */
-
-.section {
-
-}
-
 /* COVER PAGE */
 
 .section1 {
 }
 
 .title {
-  left: 60%;
+  left: 900px;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
@@ -150,16 +144,16 @@
 
 #coverpic {
   position: absolute;
-  top:-15%;
-  left:-20%;
+  top:-150px;
+  left:-350px;
   width: 1200px;
   height: 1200px;
 }
 
 #pulsating {
     position: absolute;
-    top:58%;
-    left:12.5%;
+    top:350px;
+    left:150px;
     background-color: #B83735;
     -webkit-border-radius: 30px;
     height: 60px;
@@ -172,11 +166,6 @@
     0% {-webkit-transform: scale(0.1, 0.1); opacity: 1.0;}
     100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
-
-#info {
-
-}
-
 
 /* TABLE OF CONTENTS */
 
@@ -194,11 +183,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width:90vw;
+  width:1200px;
   z-index:2;
   text-align: center;
-  top: 38%;
-  left: 5%;
+  top:325px;
+  left:100px;
 }
 
 .item1, .item2, .item3, .item4 {
@@ -209,11 +198,10 @@
 /* MAP PAGE SETTINGS */
 
 #menu {
-    position: fixed;
-    top: 60px;
+    position: absolute;
+    top: 10%;
     left: 5px;
-    height: 10px;
-    width: 50px;
+    width: 2vw;
     z-index: 70;
     padding: 0;
     margin: 0;
