@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Animate a point along a route</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="style_zhang.css" rel='stylesheet'/>
+</head>
+
+<body>
+
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js' charset='utf-8'></script>
+
+  <div id='map'></div>
+
+  <div class='info'>
+    <button id='airportbtn' class="openbtn" onclick="openAirport()"><p>Airports</p></button>
+    <button id='europebtn' class="openbtn" onclick="openEurope()"><p>Europe</p></button>
+    <button id='worldwidebtn' class="openbtn" onclick="openWorld()"><p>Worldwide</p></button>
+    <!--Airports-->
+    <div id="airportPanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeAirport()">&times;</a>
+      <div class='content'>
+        <div class='barchart'><canvas id='airport_chart' height=350px></canvas></div>
+      </div>
+    </div>
+    <!--Europe-->
+    <div id="europePanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeEurope()">&times;</a>
+      <div class='content'>
+        <div id='eu_info'></div>
+        <div class='barchart'><canvas id='europe_chart' height=350px></canvas></div>
+      </div>
+    </div>
+    <!--Worldwide-->
+    <div id="worldPanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeWorld()">&times;</a>
+      <div class='content'>
+        <div id='world_info'></div>
+        <div class='barchart'><canvas id='world_chart' height=350px></canvas></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="infobar" class='map-overlay'>
+      <div class='map-overlay-inner'>
+          <h2>Passenger amount of London Airports</h2>
+          <label id='month'></label>
+          <input id='slider' type='range' min='0' max='11' step='1' value='0' />
+          <div id='legend' class='legend'>
+              <div class='bar'></div>
+              <div>Passenger(m)</div>
+          </div>
+      </div>
+  </div>
+
+  <div id=play class='Play'>
+      <button id='replay'>Play</button>
+
+
+  <!-- Your script -->
+  <script src="Script_Bowen2.js"></script>
+</body>
+
+</html>

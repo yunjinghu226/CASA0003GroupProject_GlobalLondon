@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--META-->
+  <meta charset='utf-8' />
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <!--TITLE-->
+  <title>Oxford Street Brands</title>
+
+  <!--MAPBOX-->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com S/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+  <!--STYLE-->
+  <link href='london_brands.css' rel='stylesheet'/>
+
+  <!--Button for page change-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <!--Charts visualisation-->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+<div id='map'></div>
+<div class='map-overlay' id='legend'></div>
+
+<!--SLIDER INFO-->
+<div id='features'>
+    <section id='TTM1' class='active'>
+      <h3>The start of oxford street</h3>
+      <p>Oxford Street is a major road in the City of Westminster in the West End of London, starting from Tottenham Court Road to Marble Arch via Oxford Circus. It is Europe's busiest shopping street, which over 600,000 people visit Oxford Street every day (equivalent to the entire population of Glasgow or Leeds), and as of 2016 had approximately 300 shops.</br></br>Scroll down to see more stories about Oxford Street.</p>
+    </section>
+    <section id='TTM2'>
+      <h3>Tube Stations </h3>
+      <p>Oxford Street is served by major bus routes and by four tube stations of the London Underground. The four stations serve an average of 100 million passengers every year, with Oxford Circus currently being the busiest station in the West End, serving just under 252,000 passengers per day or 84.5 million passengers per year in 2016. This accounts for just over 50 percent of all station demand to/from the West End.</p>
+    </section>
+    <section id='TTM3'>
+      <h3>International brands</h3>
+      <p>According to the data collected, the stand-alone high street shops on Oxford Street includes brands from 19 different countries, not taking account of the brands in the department stores. Even though around half of the brands are originated from the UK, more international brands have moved in starting from 2000, making more diverse options for the shoppers.</br></br>Check the statistics tool in the information box for a more detailed view.</p>
+    </section>
+    <section id='OX1'>
+      <h3>Department stores</h3>
+      <p>There are 4 department stores on Oxford Circus, Selfridges, John Lewis and Partners, House of Fraser and Debehams.
+        The Selfridges flagship store on London's Oxford Street is the second largest shop in the UK (after Harrods),and has been recognised as the Best Department Store in the World for the fourth time by 2018. People from overseas are able to enjoy it as it operates an international website that delivers within the UK and to over 130 countries.</p>
+    </section>
+    <section id='OX2'>
+      <h3>Flagship Stores</h3>
+      <p>The West End is now the world leader in the number of flagship stores and ranks only behind Hong Kong and Dubai in its concentration of luxury stores. By 2019, ​there are around 26 flagship stores of different brands opened on London’s Oxford Street. This includes youthful fashion brand Stradivarius which moved in at the second quarter of 2016, Kiko and Skechers, both launched in 2017. Some of the international retailers that have chosen to make their UK debut with a store on Oxford Street include the Swatch Group, and shoe brand New Balance.</p>
+    </section>
+    <section id='BN1'>
+      <h3>Economy impact</h3>
+      <p>The West End supports London’s £22 billion visitor economy. With 200 million visits a year, people spend an estimated £11 billion in its hotels, restaurants, bars and shops, supporting 200,000 jobs across the capital.West End shopping is a major draw to international tourists who form 25% of the overall visits, producing £3.3 billion of foreign income.</p>
+    </section>
+    <section id='BN2'>
+      <h3>Future</h3>
+      <p>To continue to support London’s global competitiveness, the West End must accommodate growth in space for people in its buildings and in its public realm. The opening of the Elizabeth Line is predicted to rise by an additional 81 million visits annually by 2031, The new department store, Flannel, which will be opening in June 2019, aimed to be the next biggest global luxury retailer. These new constructions along with well planned, well delivered and well-funded management of the district will help the Oxford street to retain its world beating position.</p>
+    </section>
+    <section>
+    <small id="citation">
+      Icons made by <a href="https://www.freepik.com/?__hstc=57440181.6d2442c1641ce1449ecc18056bd74aa9.1557704577615.1557756201576.1558445619424.3&__hssc=57440181.3.1558445619424&__hsfp=843361952" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </br>Adapted from <a href='https://uk.fashionnetwork.com/news/-Twenty-six-flagship-stores-to-open-on-London-s-Oxford-Street-by-2019,619937.html#.XOLNSY5Kg2w'>Fashion Network,</a>&nbsp
+      <a href='https://www.london.gov.uk/sites/default/files/New%20West%20End%20Company%20%282812%29.pdf'>Greater London Authority,</a>&nbsp
+      <a href='https://www.newwestend.com/wp-content/uploads/2018/12/NWEC-City-Plan-response-FINAL.pdf'>New West End Company,</a>&nbsp
+      <a href='https://en.wikipedia.org/wiki/Oxford_Street'>Wikipedia</a>
+
+    </small>
+    </section>
+</div>
+
+<div class='infobox'>
+  <div id="brandicon"></div>
+  <div id='shopname'></div>
+  <div id='origincountry'></div>
+  <div id='yearofesta'></div>
+  <div id='numberofsh'></div>
+</div>
+
+<div id="mybottomp" class="bottompanel">
+   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <!-- Slideshow container -->
+   <div class="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertext">Chart 1</div>
+      <div id="graph1"></div>
+      <div class="text">The size of the circles represents the number of shop this brand has in the UK.</br>By clicking the side legend, you may select / deselect the countries thats show in the diagram.</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">Chart 2</div>
+      <div id="graph2"></div>
+      <div class="text"> Shops are categoried into six area.</br>By clicking the side legend, you may select / deselect the countries thats show in the diagram.</div>
+    </div>
+
+     <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+</div>
+<button class="openbutton" onclick="openNav()">Statistics</button>
+
+
+<!--Button for page change-->
+<script src='london_brands.js'></script>
+<button onclick="on()"></button>
+
+</body>
+</html>

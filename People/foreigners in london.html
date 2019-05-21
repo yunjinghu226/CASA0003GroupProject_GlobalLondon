@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Foreign workers in London</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+    
+
+    
+    
+    
+<body>
+    
+
+<style>
+#Newham {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+
+#Brent {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+
+#TowerHamlets {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 11px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+
+#Ealing {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+    
+#WalthamForest {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 11px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+    
+#Haringey {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 60px;
+height: 30px;
+padding: 0px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #ffffff;
+background: #e5adb3;
+}
+
+
+#menu {
+
+font-weight: 600;
+font-size:16px;
+text-align: center;
+background: rgb(254, 254, 255);
+position: absolute;
+z-index: 1;
+top: 160px;
+right: 80px;
+border-radius: 16px;
+width: 160px;
+/*border: 1px solid rgba(0,0,0,0.4);*/
+font-family: 'Open Sans', sans-serif;
+}
+
+#menu h4{
+font-size:16px;
+
+}
+    
+#menu a {
+font-size: 12px;
+color: rgba(21, 22, 23, 0.81);
+border-radius: 16px;
+display: block;
+margin: 0;
+padding: 0;
+padding: 10px;
+text-decoration: none;
+border-bottom: 1px solid rgba(67, 61, 61, 0.29);
+text-align: center;
+}
+ 
+#menu a:last-child {
+border: none;
+}
+ 
+#menu a:hover {
+background-color: #f8f8f8;
+color: #799ed9;
+}
+ 
+#menu a.active {
+background-color: #e5adb3;
+color: #ffffff;
+}
+ 
+#menu a.active:hover {
+background: #3074a4;
+}  
+    
+#Reset{
+
+width:100%;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+color: #ffffff;
+background: #e5adb3;
+}
+    
+.map-overlay {
+font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+position: absolute;
+z-index: 5555;
+width: 460px;
+bottom: 120px;
+right: 18px;
+padding: 10px;
+}
+    
+    #pie {
+        z-index:9999;
+        position: absolute;
+        width:100px;
+        bottom: 100px;
+right: 460px;
+    }
+ 
+.map-overlay .map-overlay-inner {
+background-color: rgb(255, 255, 255);
+box-shadow:0 1px 2px rgb(247, 245, 245);
+border-radius: 16px;
+padding: 10px;
+margin-bottom: 10px;
+}
+    
+.map-overlay2 {
+font: 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+position: absolute;
+width: 460px;
+bottom: 250px;
+right: -210px;
+padding: 10px;
+}
+
+.map-overlay2 .map-overlay-inner2 {
+font: 13px/5px 'Open Sans',sans-serif;
+position: absolute;
+font-weight: 700;
+background: rgb(254, 254, 255);
+border-radius: 16px;
+width: 190px;
+bottom: 80px;
+left: 8px;
+padding: 10px;
+    }
+ 
+.map-overlay2 h3 {
+    text-align: center;
+    font: 16px/1px 'Open Sans', sans-serif;
+    font-weight: 600;
+/*    background: rgba(203, 217, 232, 0.71);*/
+    border-radius: 16px;
+    vertical-align: center;
+    padding: 0;
+    line-height: 16px;
+    display: block;
+    margin: 6px 0px 16px;
+}
+    
+/*
+    .map-overlay2 table{
+        border: 1px solid rgba(0,0,0,0.4);
+         background: rgba(203, 217, 232, 0.71);
+    }
+*/
+    
+    
+.map-overlay label {
+    font: 13px/16px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    vertical-align: bottom;
+    margin: 0;
+    padding: 0;
+}
+
+    
+.map-overlay .legend .bar {
+font: 10px/16px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+text-align: center;
+height: 16px;
+width: 100%;
+background: linear-gradient(to right, rgba(232, 232, 232, 0.8), rgba(33, 57, 111, 0.8));
+}
+ 
+.map-overlay input {
+background-color: transparent;
+display: inline-block;
+width: 100%;
+position: relative;
+margin: 0;
+cursor: ew-resize;
+}
+
+
+    
+</style>
+
+       
+<nav id="menu"><h4>Choose nationality</h4></nav>
+<div id='map'></div>
+    
+     
+<div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+        <label id='year'>2012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016</label>
+        <input id='slider' type='range' min='2012' max='2016' step='1' value='0' />
+    </div>
+
+    <div class='map-overlay-inner'>
+        <div id='legend' class='legend'>
+        <div class='bar'>From less to more</div>
+        <div>Population</div>
+        </div>
+            <label id='input2'></label>
+    </div>
+</div>
+ 
+<div class='map-overlay2'>
+    <div class='map-overlay-inner2'>
+    <h3>Jump to Borough</h3> 
+    <button id='Reset'>Reset perspectives</button>
+  
+<table>
+ 
+    <tr>
+        <th> <button id='Newham'>Newham</button></th>
+        <th><button id='Brent'>Brent</button></th>
+        <th><button id='TowerHamlets'>Tower Hamlets</button></th>
+    </tr>
+    <tr>
+        <th> <button id='Ealing'>Ealing</button></th>
+        <th><button id='Haringey'>Haringey</button></th>
+        <th><button id='WalthamForest'>Waltham Forest</button></th>
+    </tr>
+     </table>
+</div>
+</div>
+<div class='barchart'><canvas id='pie' height=20px></canvas></div>   
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZmlubnpsIiwiYSI6ImNqbjM5ejc4aDUxcmMzcW54OGJ0YXk3djQifQ.M_f-g9pSA2yKFiZjN-S_DA';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/alexyshu226/cjvgs9wdh0eki1fqmvaycd9vs',
+  center: [-0.269334, 51.475937],
+  zoom: 9.54
+});
+
+//var hoveredStateId =  null;
+    
+map.on('load', function () {
+
+map.addLayer({
+    
+   'id': 'australia_5years-1j1wue',
+   'type': 'fill',
+   'source': {
+   'type': 'vector',
+   'url': 'mapbox://finnzl.2o1xn5gz'
+   },
+   'source-layer': 'australia_5years-1j1wue',
+   'layout': {},
+   'paint': {
+   'fill-color':[ 
+            'interpolate',  
+           ['linear'],
+             ['number',["get", "population"]],
+        
+             7,"rgb(232, 244, 255)",
+            998,"rgb(33, 57, 111)"
+            
+ ],
+//       'fill-opacity':["case",
+//["boolean", ["feature-state", "hover"], false],
+//1,
+//0.5
+//]
+},
+});
+    
+map.addLayer({
+   
+   'id': 'india_5years-cyjqys',
+   'type': 'fill',
+   'source': {
+   'type': 'vector',
+   'url': 'mapbox://finnzl.dr2wwb1k'
+   },
+   'source-layer': 'india_5years-cyjqys',
+   'layout': {},
+   'paint': {
+   'fill-color':[ 
+           'interpolate',  
+           ['linear'],
+             ['number',["get", "population"]],
+        
+             40,'rgb(232, 244, 255)',
+            1997,'rgb(33, 57, 111)'
+ ],
+//        'fill-opacity':["case",
+//["boolean", ["feature-state", "hover"], false],
+//1,
+//0.5
+//]
+},
+});  
+    
+    
+map.addLayer({
+   
+   'id': 'romania_5years-9c8rqj',
+   'type': 'fill',
+   'source': {
+   'type': 'vector',
+   'url': 'mapbox://finnzl.2lj2fwrg'
+   },
+   'source-layer': 'romania_5years-9c8rqj',
+   'layout': {},
+   'paint': {
+   'fill-color':[ 
+           'interpolate',  
+           ['linear'],
+            ['number',["get", "population"]],
+        
+             7, "rgb(232, 244, 255)",
+            1500,"rgb(114, 133, 173)",
+            9753,"rgb(26, 47, 96)"
+ ],
+//        'fill-opacity':["case",
+//["boolean", ["feature-state", "hover"], false],
+//1,
+//0.5
+//]
+       },
+}); 
+    
+map.addLayer({
+   
+   'id': 'poland_5years-16ntu0',
+   'type': 'fill',
+   'source': {
+   'type': 'vector',
+   'url': 'mapbox://finnzl.2fy2jjwn'
+   },
+   'source-layer': 'poland_5years-16ntu0',
+   'layout': {},
+   'paint': {
+   'fill-color':[ 
+           'interpolate',  
+           ['linear'],
+            ['number',["get", "population"]],
+        
+             9, "rgb(232, 244, 255)",
+            1500,"rgb(114, 133, 173)",
+            3071,"rgb(26, 47, 96)"
+ ],
+//        'fill-opacity':["case",
+//["boolean", ["feature-state", "hover"], false],
+//1,
+//0.5
+//]
+       },
+}); 
+    
+map.addLayer({
+   
+   'id': 'italy_5years-9fbt5p',
+   'type': 'fill',
+   'source': {
+   'type': 'vector',
+   'url': 'mapbox://finnzl.c1flijep'
+   },
+   'source-layer': 'italy_5years-9fbt5p',
+   'layout': {},
+   'paint': {
+   'fill-color':[ 
+           'interpolate',  
+           ['linear'],
+            ['number',["get", "population"]],
+        
+             35, "rgb(232, 244, 255)",
+            1500,"rgb(114, 133, 173)",
+            4434,"rgb(26, 47, 96)"
+ ],
+//        'fill-opacity':["case",
+//["boolean", ["feature-state", "hover"], false],
+//1,
+//0.5
+//]
+       },
+}); 
+    
+    
+    
+       });
+    
+    
+var toggleableLayerIds = [ 'australia_5years-1j1wue', 'india_5years-cyjqys','romania_5years-9c8rqj', 'poland_5years-16ntu0','italy_5years-9fbt5p'];
+var layername=['australia','india','romania','poland','italy']
+ 
+
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+    var names=layername[i];
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = names;
+    link.clicked=id;
+    link.onclick = function (e) {
+        var clickedLayer = this.clicked;
+        
+        e.preventDefault();
+        e.stopPropagation();
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+                }
+    };
+
+    
+
+var layers = document.getElementById('menu');
+    layers.appendChild(link);
+    
+function filterBy(year) {
+    var filters = ['==', 'year', year];
+    map.setFilter('australia_5years-1j1wue',filters)
+    map.setFilter('india_5years-cyjqys',filters)
+    map.setFilter('romania_5years-9c8rqj',filters)
+    map.setFilter('poland_5years-16ntu0',filters)
+    map.setFilter('italy_5years-9fbt5p',filters)
+    }
+    
+function returndata(year){
+var chart2012=[0.671621101, 0.025581179, 0.150191992, 0.045812278, 0.057610799, 0.049182651];
+var chart2013=[0.713754907, 0.023672364, 0.127282678, 0.038905302, 0.051990322, 0.044394427];
+var chart2014=[0.757744028, 0.022573478, 0.108328175, 0.032405455, 0.042790631, 0.036158233];
+var chart2015=[0.749383914, 0.026366927, 0.112072781, 0.038446929, 0.043388177, 0.030341273];
+var chart2016=[0.74082583, 0.027304772, 0.11952653, 0.037019003, 0.045145628, 0.030178237];
+    if (year==2012){
+        return chart2012
+    };
+    if (year==2013){
+        return chart2013
+    };
+    if (year==2014){
+        return chart2014
+    };
+    if (year==2015){
+        return chart2015
+    };
+    if (year==2016){
+        return chart2016
+    }
+}
+
+var categories=['European Union', 'Non-European Union (Other Europe)', 'Asia', 'Oceania', 'Americas', 'Africa']
+var colors=['#fc9977','#a3d96a','#57cfc9','#70a5d4','#6d74cf']
+
+function pie(year){
+  new Chart(document.getElementById('pie'), {
+      type: 'pie',
+      data: {
+          labels: categories,
+          datasets: [{
+              label:'pie',
+              data: returndata(year),
+              backgroundColor: colors,
+          }]
+      },
+      options: {
+//          events: ['click'],
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: false
+                  }
+              }]
+          }
+      }
+  });
+}
+
+    
+    
+    
+    
+
+document.getElementById('slider').addEventListener('input', function(e) {
+     
+     var year = parseInt(e.target.value);
+     filterBy(year);
+    pie(year);
+     });
+    }
+    
+map.on('click', 'australia_5years-1j1wue', function (e) {
+        var coordinates = e.lngLat;
+        var Areaname = e.features[0].properties.Area;
+        var Areapopulation= e.features[0].properties.population;
+        var Areayear= e.features[0].properties.year;
+    
+              new mapboxgl.Popup({offset:[0,-6],closeButton: true})
+            .setLngLat(coordinates)
+            .setHTML("<h3>Australian in&nbsp;" + Areaname + "</h3>Year:" +
+Areayear + "<br />Number of people: " + Areapopulation)
+            .addTo(map); 
+});
+
+map.on('click', 'india_5years-cyjqys', function (e) {
+        var coordinates2 = e.lngLat;
+        var Areaname2 = e.features[0].properties.Area;
+        var Areapopulation2= e.features[0].properties.population;
+        var Areayear2= e.features[0].properties.year;
+    
+              new mapboxgl.Popup({offset:[0,0],closeButton: true})
+            .setLngLat(coordinates2)
+            .setHTML("<h3>Indian in&nbsp;" + Areaname2 + "</h3>Year:" +
+Areayear2 + "<br />Number of people: " + Areapopulation2)
+            .addTo(map); 
+});
+    
+
+
+map.on('click', 'romania_5years-9c8rqj', function (e) {
+        var coordinates3 = e.lngLat;
+        var Areaname3 = e.features[0].properties.Area;
+        var Areapopulation3= e.features[0].properties.population;
+        var Areayear3= e.features[0].properties.year;
+    
+              new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates3)
+            .setHTML("<h3>Romanian in&nbsp;" + Areaname3 + "</h3>Year:" +
+Areayear3 + "<br />Number of people: " + Areapopulation3)
+            .addTo(map); 
+});
+    
+map.on('click', 'poland_5years-16ntu0', function (e) {
+        var coordinates3 = e.lngLat;
+        var Areaname3 = e.features[0].properties.Area;
+        var Areapopulation3= e.features[0].properties.population;
+        var Areayear3= e.features[0].properties.year;
+    
+              new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates3)
+            .setHTML("<h3>Pole in&nbsp;" + Areaname3 + "</h3>Year:" +
+Areayear3 + "<br />Number of people: " + Areapopulation3)
+            .addTo(map); 
+});
+    
+map.on('click', 'italy_5years-9fbt5p', function (e) {
+        var coordinates3 = e.lngLat;
+        var Areaname3 = e.features[0].properties.Area;
+        var Areapopulation3= e.features[0].properties.population;
+        var Areayear3= e.features[0].properties.year;
+    
+              new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates3)
+            .setHTML("<h3>Italian in&nbsp;" + Areaname3 + "</h3>Year:" +
+Areayear3 + "<br />Number of people: " + Areapopulation3)
+            .addTo(map); 
+});
+ 
+    
+    
+    
+//var hoveredStateId=null;    
+//    map.on("mousemove", "romania_5years-9c8rqj", function(e) {
+//    if (e.features.length > 0) {
+//        if (hoveredStateId) {
+//            map.setFeatureState({source: 'romania_5years-9c8rqj', id: hoveredStateId}, { hover: false});
+//        }
+//        hoveredStateId = e.features[0].Area;
+//        map.setFeatureState({source: 'romania_5years-9c8rqj', id: hoveredStateId}, { hover: true});
+//    }
+//    });
+// 
+//// When the mouse leaves the state-fill layer, update the feature state of the
+//// previously hovered feature.
+//map.on("mouseleave", "romania_5years-9c8rqj", function() {
+//    if (hoveredStateId) {
+//        map.setFeatureState({source: 'romania_5years-9c8rqj', id: hoveredStateId}, { hover: false});
+//    }
+//    hoveredStateId =  null;
+//});
+    
+    
+document.getElementById('Reset').addEventListener('click', function () {
+
+// Fly to a random location by offsetting the point -74.50, 40
+// by up to 5 degrees.
+map.flyTo({
+
+center: [-0.269334, 51.475937],
+bearing: -0.20,
+zoom: 9.54,
+pitch: 0.00
+});
+}); 
+document.getElementById('Newham').addEventListener('click', function () {  
+    var coordinates4=[0.033697, 51.521932];
+    new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates4)
+            .setHTML("<h3>" + 'Newham' + "</h3>")
+            .addTo(map); 
+// Fly to a random location by offsetting the point -74.50, 40
+// by up to 5 degrees.
+map.flyTo({
+
+center: [0.033697, 51.521932],
+bearing: 36.00,
+zoom: 12.45,
+pitch: 59.50
+});
+}); 
+document.getElementById('Brent').addEventListener('click', function () {
+        var coordinates4=[-0.261805, 51.552096];
+        new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates4)
+            .setHTML("<h3>" + 'Brent' + "</h3>")
+            .addTo(map); 
+map.flyTo({
+
+center: [-0.261805, 51.552096],
+bearing: -7.10,
+zoom: 12.30,
+pitch: 56.50
+});
+});
+document.getElementById('TowerHamlets').addEventListener('click', function () {
+      var coordinates4=[-0.037951, 51.517833];
+      new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates4)
+            .setHTML("<h3>" + 'Tower Hamlets' + "</h3>")
+            .addTo(map); 
+map.flyTo({
+
+center: [-0.037951, 51.517833],
+bearing: -105.34,
+zoom: 12.31,
+pitch: 10
+});
+});
+document.getElementById('Ealing').addEventListener('click', function () {
+    var coordinates4=[-0.322616, 51.517658];
+    new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates4)
+            .setHTML("<h3>" + 'Ealing' + "</h3>")
+            .addTo(map); 
+    map.flyTo({
+
+            center: [-0.322616, 51.517658],
+            bearing: 0,
+            zoom: 12.13,
+            pitch: 21.50
+        });
+    });
+document.getElementById('WalthamForest').addEventListener('click', function () {
+       var coordinates4=[-0.004431, 51.594031];
+       new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+            .setLngLat(coordinates4)
+            .setHTML("<h3>" + 'Waltham Forest' + "</h3>")
+            .addTo(map); 
+map.flyTo({
+
+center: [-0.004431, 51.594031],
+bearing: -76.80,
+zoom: 12.33,
+pitch: 34.50
+});
+});
+document.getElementById('Haringey').addEventListener('click', function () {
+           var coordinates4=[-0.103485, 51.588028];
+           new mapboxgl.Popup({offset:[0,6],closeOnClick: true})
+                .setLngLat(coordinates4)
+                .setHTML("<h3>" + 'Haringey' + "</h3>")
+                .addTo(map); 
+map.flyTo({
+
+center: [-0.103485, 51.588028],
+bearing: -8.80,
+zoom: 12.63,
+pitch: 28
+});
+});
+
+</script>
+ 
+</body>
+</html>
