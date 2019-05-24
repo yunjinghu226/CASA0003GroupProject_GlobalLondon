@@ -4,7 +4,7 @@
 }
 
 .title {
-  left: 900px;
+  left: 870px;
   display: block;
   margin-top: auto;
   margin-bottom: auto;
@@ -187,7 +187,7 @@
   z-index:2;
   text-align: center;
   top:325px;
-  left:100px;
+  left:50px;
 }
 
 .item1, .item2, .item3, .item4 {
@@ -240,7 +240,7 @@
   z-index: 2;
   padding: 8px 8px 8px 8px;
   border-radius: 5px;
-  background-color: rgba(29,166,204,0.5);
+  background-color: rgba(29,166,204,0.8);
   color: #fff;
   font-family: Helvetica, 'Open Sans', sans-serif;
 }
